@@ -5,7 +5,7 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', href: '#home', active: true },
     { name: 'Menu', href: '#menu', active: false },
-    { name: 'Offers', href: '#offers', active: false },
+    { name: 'Gallery', href: '#gallery', active: false },
     { name: 'Service', href: '#service', active: false },
     { name: 'About Us', href: '#about', active: false },
     { name: 'Contact', href: '#contact', active: false },

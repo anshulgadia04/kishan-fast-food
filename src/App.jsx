@@ -6,6 +6,7 @@ import BestDishes from './components/BestDishes';
 import Menu from './components/Menu';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
+import About from './components/About';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <BestDishes />
         <Menu />
         <Gallery />
+        <About />
         <Contact />
       </main>
     </div>

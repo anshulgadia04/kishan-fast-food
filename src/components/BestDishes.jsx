@@ -41,15 +41,15 @@ const DishCard = ({ image, name }) => {
 const BestDishes = () => {
   const dishes = [
     {
-      image: "dal-bati.png",
+      image: "dal-bati.webp",
       name: "Dal Bati Churma",
     },
     {
-      image: "pav-bhaji.png",
+      image: "pav-bhaji.webp",
       name: "Pav Bhaji",
     },
     {
-      image: "masala-dosa.png",
+      image: "masala-dosa.webp",
       name: "Masala Dosa",
     },
   ];

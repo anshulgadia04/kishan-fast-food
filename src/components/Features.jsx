@@ -4,19 +4,19 @@ const Features = () => {
   const features = [
     {
       id: 1,
-      icon: 'truck.png',
+      icon: 'truck.webp',
       title: 'Fast Delivery',
       description: 'Promise To Deliver Within 30 Mins',
     },
     {
       id: 2,
-      icon: 'fresh.png',
+      icon: 'fresh.webp',
       title: 'Fresh Food',
       description: 'Your Food Will Be Delivered 100% Fresh To Your Home.',
     },
     {
       id: 3,
-      icon: 'box.png',
+      icon: 'box.webp',
       title: 'Free Delivery',
       description: 'Your Food Delivery Is Absolutely Free. No Cost Just Order',
     },
