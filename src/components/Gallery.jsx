@@ -13,10 +13,14 @@ const galleryItems = [
   { id: 9,  src: "9.webp",       label: "Cultural",           category: "ambiance"     },
   { id: 10, src: "10.webp",      label: "Entrance",        category: "ambiance"     },
   { id: 11, src: "11.webp",      label: "Lighting",         category: "ambience" },
-  { id: 12, src: "12.webp",      label: "Pizza",           category: "food"     },
+  { id: 12, src: "12.webp",      label: "Ice cream",           category: "food"     },
   { id: 13, src: "13.webp",      label: "Drinks",          category: "food"     },
   { id: 14, src: "14.webp",      label: "Sunset View",      category: "ambience" },
   { id: 15, src: "15.webp",      label: "Special Combo",   category: "food"     },
+  { id: 16, src: "16.webp",      label: "Special Combo",        category: "food"     },
+  { id: 17, src: "17.webp",      label: "Family Time",     category: "ambience" },
+  { id: 18, src: "18.webp",      label: "Evening Vibe",    category: "ambience" },
+
 ];
 
 const FILTERS = ["all", "food", "ambience"];
