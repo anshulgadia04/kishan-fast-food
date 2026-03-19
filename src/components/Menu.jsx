@@ -6,13 +6,13 @@ const MENU_ITEMS = [
   { id: 4, name: 'South Indian Masala Dosa', image: 'masala-dosa.webp', price: 150, category: 'Meal' },
   { id: 5, name: 'Gujarati Pav Bhaji', image: 'pav-bhaji.webp', price: 250, category: 'Fast Food' },
   { id: 6, name: 'Rajasthan Dal Bati Churma', image: 'dal-bati.webp', price: 100, category: 'Thali' },
-  { id: 7, name: 'Hakka Noodles', image: 'Hakka.webp', price: 100, category: 'Chinese' },
+  { id: 7, name: 'Hakka Noodles', image: 'HakkaNoodles.webp', price: 100, category: 'Chinese' },
   { id: 8, name: 'Manchurian Noodles', image: 'ManchurianNoodles.webp', price: 120, category: 'Chinese' },
   { id: 9, name: 'Veg Manchurian', image: 'Manchurian.webp', price: 100, category: 'Chinese' },
-  { id: 10, name: 'Chinese Bhel', image: 'ChineseBhel.webp', price: 80, category: 'Chinese' },
+  { id: 10, name: 'Chinese Bhel', image: 'ChineeseBhell.webp', price: 80, category: 'Chinese' },
   { id: 11, name: 'Paneer Chilli', image: 'PaneerChilli.webp', price: 120, category: 'Chinese' },
   { id: 12, name: 'Paneer 65', image: 'Paneer65.webp', price: 150, category: 'Chinese' },
-  { id: 13, name: 'Chana Masala', image: 'ChanaMasala.webp', price: 120, category: 'Main Course' },
+  { id: 13, name: 'Chana Masala', image: 'ChannaMasala.webp', price: 120, category: 'Main Course' },
   { id: 14, name: 'Dal Fry', image: 'DalFry.webp', price: 120, category: 'Main Course' },
   { id: 15, name: 'Dal Tadka', image: 'DalTadka.webp', price: 140, category: 'Main Course' },
   { id: 16, name: 'Dal Palak', image: 'DalPalak.webp', price: 150, category: 'Main Course' },
@@ -36,10 +36,20 @@ const MENU_ITEMS = [
   { id: 34, name: 'Mexican Pizza', image: 'MexicanPizza.webp', price: 180, category: 'Pizza' },
   { id: 35, name: 'Paneer Pizza', image: 'PaneerPizza.webp', price: 180, category: 'Pizza' },
   { id: 36, name: 'Tandoori Paneer Pizza', image: 'TandooriPaneerPizza.webp', price: 190, category:'Pizza' },
+  {id: 37, name: 'Chocolate Ice Cream', image: 'ChocolateIceCream.webp', price: 120, category: 'Ice cream' },
+  {id: 38, name: 'Vanilla Ice Cream', image: 'VanillaIceCream.webp', price: 120, category: 'Ice cream' },
+  {id: 39, name: 'Strawberry Ice Cream', image: 'StrawberryIceCream.webp', price: 120, category: 'Ice cream' },
+  {id:40,name:'American Nuts', image: 'AmericanNuts.webp', price: 100, category: 'Ice cream'},
+  {id:41,name:'White House', image: 'WhiteHouse.webp', price: 120, category: 'Ice cream'},
+  {id:42,name:'Raj Bhog', image: 'RajBhog.webp', price: 150, category: 'Ice cream'},
+  {id:43,name:'Mava Malai',image:'MavaMalai.webp',price:50,category: 'Ice cream'},
+  {id:44,name:'jay ful', image:'ayful.webp',price:50,category:'Ice cream'},
+  {id:45,name:'Afghan Dry Fruit',image:'AfghanDryFruit.webp',price:60,category:'Ice cream'}
+  
 
 ];
 
-const CATEGORY_ORDER = ['Starter','Dessert', 'Fast Food', 'Main Course', 'Thali','Chinese','Pizza','Rice'];
+const CATEGORY_ORDER = ['Starter','Dessert', 'Fast Food', 'Main Course', 'Thali','Chinese','Pizza','Rice','Ice cream'];
 
 const MenuCard = ({ item }) => {
   return (
