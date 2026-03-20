@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const stats = [
   { value: "5K+", label: "Happy Customers" },
   { value: "50+", label: "Menu Items" },
-  { value: "5+", label: "Years of Excellence" },
+  { value: "2+", label: "Years of Excellence" },
   { value: "4.7★", label: "Average Rating" },
 ];
 
@@ -97,7 +97,7 @@ const About = () => {
             className="absolute -bottom-4 -right-4 z-10 flex flex-col items-center justify-center w-24 h-24 rounded-full shadow-lg text-white font-bold text-center"
             style={{ background: "#ff7b2b", fontFamily: "sans-serif" }}
           >
-            <span className="text-xl leading-none">8+</span>
+            <span className="text-xl leading-none">2+</span>
             <span className="text-xs leading-tight mt-0.5">Years of<br />Taste</span>
           </div>
 
