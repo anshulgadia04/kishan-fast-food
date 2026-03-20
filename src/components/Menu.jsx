@@ -100,7 +100,7 @@ const Menu = () => {
     if (menuSectionRef.current) {
       const isMobile = window.innerWidth < 768;
       // Account for the sticky header height on mobile
-      const yOffset = isMobile ? -140 : -80; 
+      const yOffset = isMobile ? -140 : -250; 
       const y = menuSectionRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
       
       window.scrollTo({ top: y, behavior: 'smooth' });
