@@ -32,6 +32,15 @@
   font-family: 'Lexend', sans-serif;
 }
 
+/* Hide scrollbar for category buttons on mobile */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Opera */
+}
+
 /* Marquee ribbon animation */
 .marquee {
   overflow: hidden;
