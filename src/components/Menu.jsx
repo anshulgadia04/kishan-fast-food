@@ -36,70 +36,42 @@ const MENU_ITEMS = [
   { id: 34, name: 'Mexican Pizza', image: 'MexicanPizza.webp', price: 180, category: 'Pizza' },
   { id: 35, name: 'Paneer Pizza', image: 'PaneerPizza.webp', price: 180, category: 'Pizza' },
   { id: 36, name: 'Tandoori Paneer Pizza', image: 'TandooriPaneerPizza.webp', price: 190, category:'Pizza' },
-  {id: 37, name: 'Chocolate Ice Cream', image: 'ChocolateIceCream.webp', price: 120, category: 'Ice cream' },
-  {id: 38, name: 'Vanilla Ice Cream', image: 'VanillaIceCream.webp', price: 120, category: 'Ice cream' },
-  {id: 39, name: 'Strawberry Ice Cream', image: 'StrawberryIceCream.webp', price: 120, category: 'Ice cream' },
-  {id:40,name:'American Nuts', image: 'AmericanNuts.webp', price: 100, category: 'Ice cream'},
-  {id:41,name:'White House', image: 'WhiteHouse.webp', price: 120, category: 'Ice cream'},
-  {id:42,name:'Raj Bhog', image: 'RajBhog.webp', price: 150, category: 'Ice cream'},
-  {id:43,name:'Mava Malai',image:'MavaMalai.webp',price:50,category: 'Ice cream'},
-  {id:44,name:'jay ful', image:'ayful.webp',price:50,category:'Ice cream'},
-  {id:45,name:'Afghan Dry Fruit',image:'AfghanDryFruit.webp',price:60,category:'Ice cream'}
-  
-
+  { id: 37, name: 'Chocolate Ice Cream', image: 'ChocolateIceCream.webp', price: 120, category: 'Ice cream' },
+  { id: 38, name: 'Vanilla Ice Cream', image: 'VanillaIceCream.webp', price: 120, category: 'Ice cream' },
+  { id: 39, name: 'Strawberry Ice Cream', image: 'StrawberryIceCream.webp', price: 120, category: 'Ice cream' },
+  { id: 40, name:'American Nuts', image: 'AmericanNuts.webp', price: 100, category: 'Ice cream'},
+  { id: 41, name:'White House', image: 'WhiteHouse.webp', price: 120, category: 'Ice cream'},
+  { id: 42, name:'Raj Bhog', image: 'RajBhog.webp', price: 150, category: 'Ice cream'},
+  { id: 43, name:'Mawa Malai', image:'MavaMalai.webp', price:50, category: 'Ice cream'},
+  { id: 44, name:'Jai ful', image:'Jaiful.webp', price:50, category:'Ice cream'},
+  { id: 45, name:'Afghan Dry Fruit', image:'AfghanDryFruit.webp', price:60, category:'Ice cream'}
 ];
 
-const CATEGORY_ORDER = ['Starter','Dessert', 'Fast Food', 'Main Course', 'Thali','Chinese','Pizza','Rice','Ice cream'];
+const CATEGORY_ORDER = ['Starter','Dessert','Fast Food','Main Course','Thali','Chinese','Pizza','Rice','Ice cream'];
 
 const MenuCard = ({ item }) => {
   return (
     <div className="relative w-64">
-      
       <div className="absolute -top-30 -right-25">
         <div className="relative w-60 h-60">
-
           <svg className="absolute inset-0" viewBox="0 0 200 200">
-            <circle
-              cx="100"
-              cy="100"
-              r="98"
-              fill="none"
-              stroke="#F97316"
-              strokeWidth="6"
-              strokeDasharray="18 18"
-              strokeLinecap="round"
-            />
+            <circle cx="100" cy="100" r="98" fill="none" stroke="#F97316" strokeWidth="6" strokeDasharray="18 18" strokeLinecap="round"/>
           </svg>
 
-          {/* Dish image */}
           <div className="absolute inset-3 rounded-full overflow-hidden bg-white">
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full h-full object-cover"
-            />
+            <img src={item.image} alt={item.name} className="w-full h-full object-cover"/>
           </div>
         </div>
       </div>
 
-      {/* Thin card */}
       <div className="bg-[#FFF1E8] rounded-2xl px-6 pt-36 pb-8 shadow-sm">
-        <p className="text-[#F97316] font-semibold text-lg">
-          {item.category}
-        </p>
-
-        <h3 className="text-gray-900 font-bold text-xl mt-1">
-          {item.name}
-        </h3>
-
-        <div className="mt-4 text-gray-900 font-extrabold text-3xl">
-          ₹{item.price}
-        </div>
+        <p className="text-[#F97316] font-semibold text-lg">{item.category}</p>
+        <h3 className="text-gray-900 font-bold text-xl mt-1">{item.name}</h3>
+        <div className="mt-4 text-gray-900 font-extrabold text-3xl">₹{item.price}</div>
       </div>
     </div>
   );
 };
-
 
 const MenuSection = ({ title, items }) => {
   return (
@@ -107,6 +79,7 @@ const MenuSection = ({ title, items }) => {
       <div className="flex items-center justify-between mb-36">
         <h3 className="text-4xl md:text-4xl font-bold">{title}</h3>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-48">
         {items.map((item) => (
           <MenuCard key={item.id} item={item} />
@@ -117,16 +90,12 @@ const MenuSection = ({ title, items }) => {
 };
 
 const Menu = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
-  const grouped = CATEGORY_ORDER.map((cat) => ({
-    category: cat,
-    items: MENU_ITEMS.filter((i) => i.category === cat),
-  })).filter((g) => g.items.length > 0);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   return (
     <section id="menu" className="py-14">
       <div className="max-w-7xl mx-auto px-4">
+
         <div className="mb-8">
           <h2 className="text-3xl md:text-4xl font-bold">
             Our <span className="text-[#ff7b2b]">Regular</span> Menu
@@ -136,12 +105,13 @@ const Menu = () => {
           </p>
         </div>
 
+        {/* Category Buttons */}
         <div className="flex flex-wrap gap-4 mb-14">
           <button
             onClick={() => setSelectedCategory('All')}
             className={`px-4 py-2 rounded-full transition ${
               selectedCategory === 'All'
-                ? 'bg-orange-500 text-white'
+                ? 'bg-orange-500 text-white shadow-md scale-105'
                 : 'bg-gray-200 hover:bg-orange-100'
             }`}
           >
@@ -154,7 +124,7 @@ const Menu = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-full transition ${
                 selectedCategory === cat
-                  ? 'bg-orange-500 text-white'
+                  ? 'bg-orange-500 text-white shadow-md scale-105'
                   : 'bg-gray-200 hover:bg-orange-100'
               }`}
             >
@@ -163,24 +133,17 @@ const Menu = () => {
           ))}
         </div>
 
-        {
-          selectedCategory === 'All'
-            ? grouped.map((g) => (
-                <MenuSection
-                  key={g.category}
-                  title={g.category}
-                  items={g.items}
-                />
-              ))
-            : (
-                <MenuSection
-                  title={selectedCategory}
-                  items={MENU_ITEMS.filter(
-                    (item) => item.category === selectedCategory
-                  )}
-                />
-              )
-        }
+        {/* Menu Display */}
+        <MenuSection
+          title={selectedCategory === 'All' ? 'All Items' : selectedCategory}
+          items={
+            selectedCategory === 'All'
+              ? MENU_ITEMS
+              : MENU_ITEMS.filter(
+                  (item) => item.category === selectedCategory
+                )
+          }
+        />
 
       </div>
     </section>
@@ -188,6 +151,7 @@ const Menu = () => {
 };
 
 export default Menu;
+
 
 
 
