@@ -61,7 +61,7 @@ const PARTICLES = [
 ];
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [focused, setFocused] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -79,7 +79,6 @@ export default function Contact() {
       `🍽️ *New Message from Website*`,
       ``,
       `👤 *Name:* ${form.name}`,
-      `📧 *Email:* ${form.email}`,
       form.phone ? `📞 *Phone:* ${form.phone}` : null,
       ``,
       `💬 *Message:*`,
@@ -93,7 +92,7 @@ export default function Contact() {
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-      setForm({ name: "", email: "", phone: "", message: "" });
+      setForm({ name: "", phone: "", message: "" });
       window.open(waUrl, "_blank");
       setTimeout(() => setSubmitted(false), 4000);
     }, 1000);
@@ -253,11 +252,11 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 18 }}>
 
-                {/* Name + Email row */}
+                {/* Name + Phone row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    { name: "name", type: "text", placeholder: "Your Name" },
-                    { name: "email", type: "email", placeholder: "Email Address" },
+                    { name: "name", type: "text", placeholder: "Your Name", required: true },
+                    { name: "phone", type: "tel", placeholder: "Phone Number (optional)", required: false },
                   ].map((f) => (
                     <div key={f.name} className={`input-line ${focused === f.name ? "active" : ""}`} style={{ position: "relative" }}>
                       <input
@@ -268,7 +267,7 @@ export default function Contact() {
                         onChange={handleChange}
                         onFocus={() => setFocused(f.name)}
                         onBlur={() => setFocused("")}
-                        required
+                        required={f.required}
                         style={{
                           width: "100%", background: "#faf8f6", border: "1.5px solid #ffe0cc",
                           borderRadius: 14, padding: "14px 18px", fontSize: 14, color: "#1a1a1a",
@@ -278,25 +277,6 @@ export default function Contact() {
                       />
                     </div>
                   ))}
-                </div>
-
-                {/* Phone */}
-                <div className={`input-line ${focused === "phone" ? "active" : ""}`} style={{ position: "relative" }}>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number (optional)"
-                    value={form.phone}
-                    onChange={handleChange}
-                    onFocus={() => setFocused("phone")}
-                    onBlur={() => setFocused("")}
-                    style={{
-                      width: "100%", background: "#faf8f6", border: "1.5px solid #ffe0cc",
-                      borderRadius: 14, padding: "14px 18px", fontSize: 14, color: "#1a1a1a",
-                      outline: "none", transition: "border-color .25s",
-                      borderColor: focused === "phone" ? "#ff7b2b" : "#ffe0cc",
-                    }}
-                  />
                 </div>
 
                 {/* Message */}
