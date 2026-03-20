@@ -1,7 +1,9 @@
-import React from 'react';
-import { Search } from 'lucide-react';
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const navLinks = [
     { name: 'Home', href: '#home', active: true },
     { name: 'Menu', href: '#menu', active: false },
@@ -12,7 +14,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-[#FFEFE6] px-6 py-4 lg:px-16">
+    <header className="bg-[#FFEFE6] px-6 py-4 lg:px-16 relative z-50">
       <nav className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo */}
         <div className="flex items-center">
@@ -41,14 +43,40 @@ const Header = () => {
           ))}
         </ul>
 
-        {/* Search Button */}
+        {/* Mobile Menu Toggle Button */}
         <button
-          className="w-12 h-12 rounded-full bg-[#ff7b2b] flex items-center justify-center hover:bg-[#c65b18] cursor-pointer transition-colors shadow-md"
-          aria-label="Search"
+          className="md:hidden w-12 h-12 rounded-full bg-[#ff7b2b] flex items-center justify-center hover:bg-[#c65b18] cursor-pointer transition-colors shadow-md"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
-          <Search className="w-5 h-5 text-white" />
+          {isMobileMenuOpen ? (
+            <X className="w-6 h-6 text-white" />
+          ) : (
+            <Menu className="w-6 h-6 text-white" />
+          )}
         </button>
       </nav>
+
+      {/* Mobile Nav Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-[80px] left-4 right-4 bg-white rounded-2xl shadow-xl p-6 md:hidden border border-gray-100 animate-in fade-in slide-in-from-top-4 duration-200">
+          <ul className="flex flex-col gap-6">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block text-lg font-medium transition-colors hover:text-[#ff7b2b] ${
+                    link.active ? 'text-[#ff7b2b]' : 'text-gray-600'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
 };
