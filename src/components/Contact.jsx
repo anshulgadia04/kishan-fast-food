@@ -71,32 +71,47 @@ export default function Contact() {
   const handleChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);
 
-    const ownerNumber = "918233787433";
-    const text = [
-      `🍽️ *New Message from Website*`,
-      ``,
-      `👤 *Name:* ${form.name}`,
-      form.phone ? `📞 *Phone:* ${form.phone}` : null,
-      ``,
-      `💬 *Message:*`,
-      form.message,
-    ]
-      .filter((l) => l !== null)
-      .join("\n");
+  const ownerNumber = "918233787433";
 
-    const waUrl = `https://wa.me/${ownerNumber}?text=${encodeURIComponent(text)}`;
+  const text = [
+  `🍔 *KISHAN FAST FOOD & RESTAURANT*`,
+  ``,
+  `Hello! A new customer inquiry has come in from your website.`,
+  ``,
+  `👤 *Customer Details:*`,
+  `• Name: ${form.name}`,
+  form.phone ? `• Phone: ${form.phone}` : `• Phone: Not provided`,
+  ``,
+  `💬 *Message:*`,
+  `"${form.message || "No message provided."}"`,
+  ``,
+  `📅 ${new Date().toLocaleString("en-IN", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  })}`,
+  ``,
+  `Kindly get in touch with the customer at your convenience. 😊`,
+]
+  .filter(Boolean)
+  .join("\n");
+  
+  const waUrl = `https://api.whatsapp.com/send?phone=${ownerNumber}&text=${encodeURIComponent(text)}`;
 
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-      setForm({ name: "", phone: "", message: "" });
-      window.open(waUrl, "_blank");
-      setTimeout(() => setSubmitted(false), 4000);
-    }, 1000);
-  };
+  setTimeout(() => {
+    window.location.href = waUrl;
+  }, 300);
+
+  setSubmitted(true);
+  setForm({ name: "", phone: "", message: "" });
+
+  setTimeout(() => {
+    setSubmitted(false);
+    setLoading(false);
+  }, 3000);
+};
 
   return (
     <section
