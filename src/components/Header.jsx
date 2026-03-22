@@ -17,7 +17,7 @@ const Header = () => {
       <nav className="flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center">
           <svg
-          className="w-[300px] md:w-[362px] h-auto"
+          className="w-[275px] md:w-[362px] h-auto"
             // width="362"
             // height="43"
             viewBox="0 0 362 43"
