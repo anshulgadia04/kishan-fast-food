@@ -18,7 +18,7 @@ const MENU_ITEMS = [
   { id: 16, name: 'Dal Palak', image: 'DalPalak.webp', price: 140, category: 'Main Course' },
   { id: 17, name: 'Dal Makhni', image: 'DalMakhni.webp', price: 140, category: 'Main Course' },
   { id: 18, name: 'Veg Handi', image: 'VegHandi.webp', price: 120, category: 'Main Course' },
-  { id: 19, name: 'Sev Tamatar', image: 'SevTamatar.webp', price: 80, category: 'Main Course' },
+  { id: 19, name: 'Sev Tamatar', image: 'SevTamatar.webp', price: 100, category: 'Main Course' },
   { id: 20, name: 'Plain Rice', image: 'PlainRice.webp', price: 60, category: 'Rice' },
   { id: 21, name: 'Jeera Rice', image: 'JeeraRice.webp', price: 70, category: 'Rice' },
   { id: 22, name: 'Matar Pulao', image: 'MatarPulao.webp', price: 90, category: 'Rice' },
