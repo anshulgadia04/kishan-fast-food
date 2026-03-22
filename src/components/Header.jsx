@@ -93,6 +93,14 @@ const Header = () => {
               </li>
             ))}
           </ul>
+          <div className="border-t border-gray-100 mt-6 pt-6 flex flex-col gap-4">
+            <a href="tel:+918233787433" className="text-base font-medium text-gray-600 hover:text-[#ff7b2b] transition-colors">
+              +91 8233787433
+            </a>
+            <a href="mailto:karm8233@gmail.com" className="text-base font-medium text-gray-600 hover:text-[#ff7b2b] transition-colors">
+              karm8233@gmail.com
+            </a>
+          </div>
         </div>
       )}
     </header>
