@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const Star = ({ className = "" }) => (
   <svg
@@ -67,40 +68,48 @@ const BestDishes = () => {
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center mb-28">
-          <h2 className="text-4xl font-bold">
-            Our <span className="text-[#ff7b2b]">Best Delivered</span> <br />
-            Indian Dish
-          </h2>
-          <p className="text-gray-400">
-            It's Not Just About Bringing You Good Food
-            <br />
-            From Restaurants, We Deliver You Experience
-          </p>
+          <Slide direction="left" triggerOnce>
+            <h2 className="text-4xl font-bold">
+              Our <span className="text-[#ff7b2b]">Best Delivered</span> <br />
+              Indian Dish
+            </h2>
+          </Slide>
+          <Slide direction="right" triggerOnce>
+            <p className="text-gray-400">
+              It's Not Just About Bringing You Good Food
+              <br />
+              From Restaurants, We Deliver You Experience
+            </p>
+          </Slide>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {dishes.map((dish, index) => (
-            <DishCard key={index} {...dish} />
+            <Fade key={index} delay={index * 200} triggerOnce>
+              <DishCard {...dish} />
+            </Fade>
           ))}
         </div>
         {/* Regions ribbon with infinite marquee */}
       </div>
-      <div className="bg-[#FFF3EB] p-4 rounded-lg mt-20">
-        <div className="marquee">
-          <div className="marquee-track items-center">
-            {marqueeItems.map((region, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 shrink-0 px-6"
-              >
-                <Star className="text-[#1f2922]" />
-                <span className="text-[#1f2922] text-lg font-semibold">
-                  {region}
-                </span>
-              </div>
-            ))}
+      <Fade delay={500} triggerOnce>
+        <div className="bg-[#FFF3EB] p-4 rounded-lg mt-20">
+          <div className="marquee">
+            <div className="marquee-track items-center">
+              {marqueeItems.map((region, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 shrink-0 px-6"
+                >
+                  <Star className="text-[#1f2922]" />
+                  <span className="text-[#1f2922] text-lg font-semibold">
+                    {region}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </Fade>
     </section>
   );
 };
