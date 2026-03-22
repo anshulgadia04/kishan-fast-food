@@ -9,28 +9,28 @@ const stats = [
 
 const reviews = [
   {
-    name: "Priya Sharma",
-    location: "Chittorgarh",
+    name: "Anshul Gadia",
+    location: "Gurgaon, Haryana",
     rating: 5,
-    text: "Absolutely the best biryani I've had! The flavors are authentic and the service was super fast.",
-    avatar: "PS",
-    dish: "Veg Biryani",
+    text: "Absolutely the best Pav Bhaji I've had! The flavors are authentic and the service was super fast.",
+    avatar: "AG",
+    dish: "",
   },
   {
-    name: "Rahul Mehta",
-    location: "Udaipur",
+    name: "Lalit Menariya",
+    location: "Rajkot,Gujarat",
     rating: 5,
     text: "The thali here is incredible — so wholesome and freshly prepared. Feels like home food.",
-    avatar: "RM",
-    dish: "Special Thali",
+    avatar: "LM",
+    dish: "",
   },
   {
-    name: "Sneha Patel",
-    location: "Ahmedabad",
+    name: "Piyush Palecha",
+    location: "Ahmedabad,Gujarat",
     rating: 5,
     text: "Paneer starters and pizza were amazing! Great quality and taste. My family loved it.",
-    avatar: "SP",
-    dish: "Paneer Tikka",
+    avatar: "PP",
+    dish: "",
   },
 ];
 
