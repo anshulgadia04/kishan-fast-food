@@ -63,27 +63,29 @@ export default function Contact() {
 
     const ownerNumber = "918233787433";
 
-    const text = [
-      `🍔 *KISHAN FAST FOOD & RESTAURANT*`,
-      ``,
-      `Hello! A new customer inquiry has come in from your website.`,
-      ``,
-      `👤 *Customer Details:*`,
-      `• Name: ${form.name}`,
-      form.phone ? `• Phone: ${form.phone}` : `• Phone: Not provided`,
-      ``,
-      `💬 *Message:*`,
-      `"${form.message || "No message provided."}"`,
-      ``,
-      `📅 ${new Date().toLocaleString("en-IN", {
-        dateStyle: "medium",
-        timeStyle: "short",
-      })}`,
-      ``,
-      `Kindly get in touch with the customer at your convenience. 😊`,
-    ]
-      .filter(Boolean)
-      .join("\n");
+  const text = [
+  `🍔 *SHRI KISHAN FAST FOOD & RESTAURANT*`,
+  ``,
+  `Hello! A new customer inquiry has come in from your website.`,
+  ``,
+  `👤 *Customer Details:*`,
+  `• Name: ${form.name}`,
+  form.phone ? `• Phone: ${form.phone}` : `• Phone: Not provided`,
+  ``,
+  `💬 *Message:*`,
+  `"${form.message || "No message provided."}"`,
+  ``,
+  `📅 ${new Date().toLocaleString("en-IN", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  })}`,
+  ``,
+  `Kindly get in touch with the customer at your convenience. 😊`,
+]
+  .filter(Boolean)
+  .join("\n");
+  
+  const waUrl = `https://api.whatsapp.com/send?phone=${ownerNumber}&text=${encodeURIComponent(text)}`;
 
     const url = `https://wa.me/${ownerNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
