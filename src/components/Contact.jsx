@@ -77,7 +77,7 @@ export default function Contact() {
   const ownerNumber = "918233787433";
 
   const text = [
-  `🍔 *KISHAN FAST FOOD & RESTAURANT*`,
+  `🍔 *SHRI KISHAN FAST FOOD & RESTAURANT*`,
   ``,
   `Hello! A new customer inquiry has come in from your website.`,
   ``,

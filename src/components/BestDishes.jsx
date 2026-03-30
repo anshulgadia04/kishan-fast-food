@@ -31,9 +31,6 @@ const DishCard = ({ image, name }) => {
         />
       </div>
       <h3 className="mt-4 text-lg font-semibold">{name}</h3>
-      <a href="#" className="text-[#ff7b2b] font-semibold">
-        Order Now &gt;
-      </a>
     </div>
   );
 };
