@@ -49,11 +49,7 @@ const MENU_ITEMS = [
   { id: 45, name:'Afghan Dry Fruit', image:'AfghanDryFruit.webp', price:50, category:'Ice cream'},
   { id: 46, name:'Gulab Jamun', image:'GulabJamun.webp', price:150, category:'Dessert'},
   { id: 47, name:'Special Thali', image:'SpecialThali.webp', price:140, category:'Thali'},
-<<<<<<< HEAD
-  {id:48, name:'Shri Kishan Special Thali', image:'home-thali.webp', price:200, category:'Thali'},
-=======
   {id:48, name:'Shri Kishan Special Thali', image:'KishanSpecial.webp', price:200, category:'Thali'},
->>>>>>> baab4c14bea78455fd89b71e2ee9c45c27794415
 ];
 
 const CATEGORY_ORDER = ['Starter','Dessert','Main Course','Thali','Chinese','Pizza','Rice','Ice cream'];
