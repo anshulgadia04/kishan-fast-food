@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Fade, Slide } from 'react-awesome-reveal';
 
 const MENU_ITEMS = [
   { id: 1, name: 'Angoori Rasmalai', image: 'rasmalai.webp', price: 250, category: 'Dessert' },
@@ -48,7 +49,11 @@ const MENU_ITEMS = [
   { id: 45, name:'Afghan Dry Fruit', image:'AfghanDryFruit.webp', price:50, category:'Ice cream'},
   { id: 46, name:'Gulab Jamun', image:'GulabJamun.webp', price:150, category:'Dessert'},
   { id: 47, name:'Special Thali', image:'SpecialThali.webp', price:140, category:'Thali'},
+<<<<<<< HEAD
   {id:48, name:'Shri Kishan Special Thali', image:'home-thali.webp', price:200, category:'Thali'},
+=======
+  {id:48, name:'Shri Kishan Special Thali', image:'KishanSpecial.webp', price:200, category:'Thali'},
+>>>>>>> baab4c14bea78455fd89b71e2ee9c45c27794415
 ];
 
 const CATEGORY_ORDER = ['Starter','Dessert','Main Course','Thali','Chinese','Pizza','Rice','Ice cream'];
@@ -80,13 +85,17 @@ const MenuCard = ({ item }) => {
 const MenuSection = ({ title, items }) => {
   return (
     <div className="mb-36">
-      <div className="flex items-center justify-between mb-36">
-        <h3 className="text-4xl md:text-4xl font-bold">{title}</h3>
-      </div>
+      <Slide direction="left" triggerOnce>
+        <div className="flex items-center justify-between mb-36">
+          <h3 className="text-4xl md:text-4xl font-bold">{title}</h3>
+        </div>
+      </Slide>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-48">
-        {items.map((item) => (
-          <MenuCard key={item.id} item={item} />
+        {items.map((item, index) => (
+          <Fade key={item.id} delay={index * 100} triggerOnce>
+            <MenuCard item={item} />
+          </Fade>
         ))}
       </div>
     </div>
@@ -112,51 +121,42 @@ const Menu = () => {
   };
 
   return (
-    <section id="menu" className="py-14">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="menu" className="bg-white py-20 px-4 sm:px-6 lg:px-16">
+      <div className="max-w-7xl mx-auto">
+        <Fade triggerOnce>
+          <div className="text-center mb-12">
+            <h2 className="text-5xl font-extrabold text-gray-900">
+              Our <span className="text-[#F97316]">Menu</span>
+            </h2>
+            <p className="mt-4 text-lg text-gray-500">
+              A wide variety of delicious and authentic dishes to choose from.
+            </p>
+          </div>
+        </Fade>
 
-        <div className="mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Our <span className="text-[#ff7b2b]">Regular</span> Menu
-          </h2>
-          <p className="mt-2 text-gray-400 text-xs md:text-sm">
-            There Are Our Regular Menus. You Can Order Anything You Like.
-          </p>
-        </div>
-
-        {/* Category Buttons - Sticky on mobile only */}
-        <div className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm py-3 -mx-4 px-4 mb-14 shadow-[0_4px_12px_rgba(0,0,0,0.05)] md:static md:z-auto md:bg-transparent md:backdrop-blur-none md:py-0 md:mx-0 md:shadow-none">
-          <div className="flex gap-3 overflow-x-auto px-2 py-2 pb-1 scrollbar-hide md:flex-wrap md:overflow-x-visible md:gap-4 md:pb-0">
-            {CATEGORY_ORDER.map((cat) => (
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {CATEGORY_ORDER.map((cat, index) => (
+            <Fade key={cat} delay={index * 100} triggerOnce>
               <button
-                key={cat}
                 onClick={() => handleCategoryChange(cat)}
-                className={`px-4 py-2 rounded-full transition cursor-pointer whitespace-nowrap flex-shrink-0 md:whitespace-normal md:flex-shrink ${
+                className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
                   selectedCategory === cat
-                    ? 'bg-orange-500 text-white shadow-md scale-105'
-                    : 'bg-gray-200 hover:bg-orange-100'
+                    ? 'bg-[#F97316] text-white shadow-lg'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
                 {cat}
               </button>
-            ))}
-          </div>
+            </Fade>
+          ))}
         </div>
 
-        {/* Menu Display */}
         <div ref={menuSectionRef}>
           <MenuSection
-            title={selectedCategory === 'All' ? 'All Items' : selectedCategory}
-            items={
-              selectedCategory === 'All'
-                ? MENU_ITEMS
-                : MENU_ITEMS.filter(
-                    (item) => item.category === selectedCategory
-                  )
-            }
+            title={selectedCategory}
+            items={MENU_ITEMS.filter(item => item.category === selectedCategory)}
           />
         </div>
-
       </div>
     </section>
   );
