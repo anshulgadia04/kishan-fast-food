@@ -183,17 +183,6 @@ export default function Contact() {
 
           {/* MAP */}
           <div className="lg:col-span-2 rounded-3xl overflow-hidden border border-gray-200 shadow-sm relative h-full min-h-100 lg:min-h-0">
-            <a
-              href="https://www.google.com/maps/place/Shree+Kishan+Fast+Food+And+Restaurant/@24.4509306,74.2634932,17z/data=!3m1!4b1!4m6!3m5!1s0x3966355f4477c94f:0xc7cfbf29e5b7406f!8m2!3d24.4509306!4d74.2660681!16s%2Fg%2F11s7q8q8q8"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open restaurant location in Google Maps"
-              className="absolute inset-0 z-10"
-            >
-              <div className="absolute top-3 left-3 bg-[#ff7b2b] text-white text-xs font-bold tracking-wider uppercase px-3 py-1.5 rounded-full shadow-md">
-                📍 Open in Maps
-              </div>
-            </a>
             <iframe
               title="Shree Kishan Fast Food And Restaurant"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.9958129555475!2d74.26349317513825!3d24.45093057819883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3966355f4477c94f%3A0xc7cfbf29e5b7406f!2sShree%20Kishan%20Fast%20Food%20And%20Restaurant!5e0!3m2!1sen!2sin!4v1769620133631!5m2!1sen!2sin"
