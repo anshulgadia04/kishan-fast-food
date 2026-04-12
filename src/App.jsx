@@ -7,12 +7,13 @@ import Menu from './components/Menu';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import About from './components/About';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <main>
+      <main className="flex-grow">
         <Hero />
         <Features />
         <BestDishes />
@@ -21,6 +22,7 @@ function App() {
         <About />
         <Contact />
       </main>
+      <Footer />
     </div>
   );
 }
