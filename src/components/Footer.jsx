@@ -8,11 +8,11 @@ export default function Footer() {
         <p className="flex items-center gap-2">
           <span>Need technical support?</span>
           <span>
-            Powered by{' '}
-            <a 
-              href="https://www.visiontechx.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            Developed by{' '}
+            <a
+              href="https://www.visiontechx.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[#ff7b2b] font-bold hover:underline"
             >
               Vision TechX
