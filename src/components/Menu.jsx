@@ -101,19 +101,24 @@ const MenuSection = ({ title, items }) => {
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState('Starter');
   const menuSectionRef = useRef(null);
+  const categoryBarRef = useRef(null);
 
   const handleCategoryChange = (cat) => {
     setSelectedCategory(cat);
-    
-    // Auto-scroll to menu items section to show the first item
-    if (menuSectionRef.current) {
-      const isMobile = window.innerWidth < 768;
-      // Account for the sticky header height on mobile
-      const yOffset = isMobile ? -140 : -250; 
-      const y = menuSectionRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
-      
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+
+    // Wait for React to re-render the new category items before scrolling
+    setTimeout(() => {
+      if (menuSectionRef.current && categoryBarRef.current) {
+        const barHeight = categoryBarRef.current.getBoundingClientRect().height;
+        const y =
+          menuSectionRef.current.getBoundingClientRect().top +
+          window.scrollY -
+          barHeight -
+          16; // 16px breathing room below sticky bar
+
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 50);
   };
 
   return (
@@ -130,21 +135,27 @@ const Menu = () => {
           </div>
         </Fade>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {CATEGORY_ORDER.map((cat, index) => (
-            <Fade key={cat} delay={index * 100} triggerOnce>
+        {/* Sticky category bar */}
+        <div
+          ref={categoryBarRef}
+          className="sticky top-0 z-30 bg-white/90 backdrop-blur-sm py-4 mb-8 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-16 lg:px-16 shadow-sm"
+        >
+          {/* Mobile: horizontal scroll | md+: centered wrap */}
+          <div className="flex sm:flex-wrap sm:justify-center gap-3 overflow-x-auto sm:overflow-x-visible scrollbar-hide pb-1 sm:pb-0">
+            {CATEGORY_ORDER.map((cat) => (
               <button
+                key={cat}
                 onClick={() => handleCategoryChange(cat)}
-                className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                className={`flex-shrink-0 px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
                   selectedCategory === cat
-                    ? 'bg-[#F97316] text-white shadow-lg'
+                    ? 'bg-[#F97316] text-white shadow-lg scale-105'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
                 {cat}
               </button>
-            </Fade>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div ref={menuSectionRef}>
